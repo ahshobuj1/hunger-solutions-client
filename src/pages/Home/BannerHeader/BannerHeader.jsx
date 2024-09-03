@@ -2,11 +2,9 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import {Carousel} from 'react-responsive-carousel';
 import banner1 from '../../../assets/images/banner-1.jpg';
 import banner2 from '../../../assets/images/banner-2.png';
-import banner3 from '../../../assets/images/banner-3.jpg';
+//import banner3 from '../../../assets/images/banner-3.jpg';
 import Lottie from 'lottie-react';
 import foodsAnimation from '../../../assets/animation/foodsAnimation.json';
-
-/*  bg-gradient-to-r from-[#00000027] to-[#00000072] */
 
 const BannerHeader = () => {
     return (
