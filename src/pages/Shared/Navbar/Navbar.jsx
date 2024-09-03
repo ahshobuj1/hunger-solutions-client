@@ -51,12 +51,12 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/">
-                        <a className=" text-xl italic font-medium text-fuchsia-600 ">
-                            <span className="text-2xl text-bold text-green-600 ">
+                        <a className=" text-xl md:text-3xl italic font-medium text-fuchsia-600 ">
+                            <span className="text-2xl md:text-4xl text-bold text-green-600 ">
                                 H
                             </span>
                             unger
-                            <span className="text-2xl text-bold text-green-600 ">
+                            <span className="text-2xl md:text-4xl text-bold text-green-600 ">
                                 S
                             </span>
                             olutions

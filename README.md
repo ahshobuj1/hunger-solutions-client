@@ -76,10 +76,3 @@ I am building a Community Food Sharing and Surplus Reduction Platform to connect
 ### 404 Page
 
 -   **Content:** Image/GIF and Back to Home button
-
-## Installation
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/your-repository.git
-    ```
