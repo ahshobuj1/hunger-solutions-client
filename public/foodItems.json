@@ -9,7 +9,8 @@
         "food_quantity": "20 servings",
         "pickup_location": "123 Main St, Cityville",
         "expiry_datetime": "2024-09-10T18:00:00",
-        "additional_notes": "Gluten-free option available upon request."
+        "additional_notes": "Gluten-free option available upon request.",
+        "date_added": "2024-09-04T14:00:00"
     },
     {
         "food_image": "https://example.com/images/caesar_salad.jpg",
@@ -21,7 +22,8 @@
         "food_quantity": "15 bowls",
         "pickup_location": "456 Market St, Cityville",
         "expiry_datetime": "2024-09-08T12:00:00",
-        "additional_notes": "Contains anchovies."
+        "additional_notes": "Contains anchovies.",
+        "date_added": "2024-09-04T14:05:00"
     },
     {
         "food_image": "https://example.com/images/margherita_pizza.jpg",
@@ -33,7 +35,8 @@
         "food_quantity": "10 pizzas",
         "pickup_location": "789 Pizza Ave, Cityville",
         "expiry_datetime": "2024-09-07T20:00:00",
-        "additional_notes": "Vegetarian-friendly."
+        "additional_notes": "Vegetarian-friendly.",
+        "date_added": "2024-09-04T14:10:00"
     },
     {
         "food_image": "https://example.com/images/grilled_salmon.jpg",
@@ -45,7 +48,8 @@
         "food_quantity": "8 fillets",
         "pickup_location": "101 Fish Lane, Cityville",
         "expiry_datetime": "2024-09-06T18:00:00",
-        "additional_notes": "Freshly caught, sustainably sourced."
+        "additional_notes": "Freshly caught, sustainably sourced.",
+        "date_added": "2024-09-04T14:15:00"
     },
     {
         "food_image": "https://example.com/images/chocolate_cake.jpg",
@@ -57,7 +61,8 @@
         "food_quantity": "5 cakes",
         "pickup_location": "202 Dessert Blvd, Cityville",
         "expiry_datetime": "2024-09-09T16:00:00",
-        "additional_notes": "Contains nuts."
+        "additional_notes": "Contains nuts.",
+        "date_added": "2024-09-04T14:20:00"
     },
     {
         "food_image": "https://example.com/images/vegetable_stir_fry.jpg",
@@ -69,6 +74,7 @@
         "food_quantity": "25 boxes",
         "pickup_location": "303 Vegan St, Cityville",
         "expiry_datetime": "2024-09-08T14:00:00",
-        "additional_notes": "Vegan, organic ingredients."
+        "additional_notes": "Vegan, organic ingredients.",
+        "date_added": "2024-09-04T14:25:00"
     }
 ]
