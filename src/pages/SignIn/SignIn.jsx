@@ -2,9 +2,9 @@ import {useState} from 'react';
 import bgImage from '../../assets/images/bg-account.jpg';
 import './signIn.css';
 import {FaAt, FaEyeSlash, FaEye, FaGoogle, FaFacebook} from 'react-icons/fa';
-
-//import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import useAuth from '../../hooks/UserAuthContext/useAuth';
+//import {Link, useLocation, useNavigate} from 'react-router-dom';
 //import {useContext, useState} from 'react';
 //import {AuthContext} from '../../context/UserContext';
 //import {ToastContainer, toast} from 'react-toastify';
@@ -12,6 +12,8 @@ import {Link} from 'react-router-dom';
 
 const SignIn = () => {
     const [show, setShow] = useState(false);
+    const {logInUser, loginWithGoogle} = useAuth();
+
     /*  const {loginUser, loginWithGoogle} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -24,24 +26,20 @@ const SignIn = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
-        /* loginUser(email, password)
+        logInUser(email, password)
             .then((res) => {
-                console.log('Login user ', res.user);
+                console.log(res.user);
                 e.target.reset();
-
-                navigate(location.state ? location.state : '/');
             })
-            .catch((err) => console.log(err.message)); */
+            .catch((err) => console.log(err.message));
     };
 
     const handleGoogleLogin = () => {
-        /*  loginWithGoogle()
+        loginWithGoogle()
             .then((res) => {
-                console.log('google login', res.user);
-                toast('Login successfully!');
-                navigate(location.state ? location.state : '/');
+                console.log(res.user);
             })
-            .catch((err) => console.log(err.message)); */
+            .catch((err) => console.log(err.message));
     };
 
     return (
@@ -115,10 +113,10 @@ const SignIn = () => {
                         <p>Login with social link! </p>
                         <div className="flex space-x-8 justify-center items-center my-3">
                             <a onClick={handleGoogleLogin}>
-                                <FaGoogle className="text-3xl p-1 rounded-sm bg-red-500" />
+                                <FaGoogle className="text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
                             </a>
                             <a>
-                                <FaFacebook className="text-3xl p-1 rounded-sm bg-red-500" />
+                                <FaFacebook className="text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
                             </a>
                         </div>
 

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import bgImage from '../../assets/images/bg-account.jpg';
-import './signup.css';
+import {Link} from 'react-router-dom';
+import useAuth from '../../hooks/UserAuthContext/useAuth';
 import {
     FaAt,
     FaEyeSlash,
@@ -9,9 +10,8 @@ import {
     FaFacebook,
     FaRegUser,
 } from 'react-icons/fa';
-
+import './signUp.css';
 //import {Link, useLocation, useNavigate} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 //import {useContext, useState} from 'react';
 //import {AuthContext} from '../../context/UserContext';
 //import {ToastContainer, toast} from 'react-toastify';
@@ -19,10 +19,7 @@ import {Link} from 'react-router-dom';
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
-    /*  const {loginUser, loginWithGoogle} = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
-    console.log(location); */
+    const {createUser, loginWithGoogle} = useAuth();
 
     //get input value
     const handleFormValue = (e) => {
@@ -31,25 +28,24 @@ const SignUp = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
-        /* loginUser(email, password)
+        //create user
+        createUser(email, password)
             .then((res) => {
-                console.log('Login user ', res.user);
+                console.log(res.user);
                 e.target.reset();
-
-                navigate(location.state ? location.state : '/');
             })
-            .catch((err) => console.log(err.message)); */
+            .catch((err) => console.log(err.message));
     };
 
+    // sign in with google
     const handleGoogleLogin = () => {
-        /*  loginWithGoogle()
+        loginWithGoogle()
             .then((res) => {
-                console.log('google login', res.user);
-                toast('Login successfully!');
-                navigate(location.state ? location.state : '/');
+                console.log(res.user);
             })
-            .catch((err) => console.log(err.message)); */
+            .catch((err) => console.log(err.message));
     };
+
     return (
         <div className="h-[650px] relative">
             <img
