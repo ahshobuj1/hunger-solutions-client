@@ -1,15 +1,23 @@
 import {useEffect, useState} from 'react';
 import FoodCard from '../../../components/FoodCard.jsx/FoodCard';
 import {Link} from 'react-router-dom';
+import useAxiosSecure from '../../../hooks/AxiosSecure/useAxiosSecure';
 
 const FeaturedFood = () => {
     const [foods, setFoods] = useState([]);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
-        fetch('http://localhost:5000/foods')
+        axiosSecure
+            .get('/foods')
+            .then((res) => {
+                setFoods(res.data);
+            })
+            .catch((err) => console.log(err.message));
+        /* fetch('http://localhost:5000/foods')
             .then((res) => res.json())
-            .then((data) => setFoods(data));
-    }, []);
+            .then((data) => setFoods(data)); */
+    }, [axiosSecure]);
 
     return (
         <section>
@@ -22,12 +30,12 @@ const FeaturedFood = () => {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 ">
-                {foods.map((food) => (
+                {foods.slice(0, 3).map((food) => (
                     <FoodCard key={food._id} food={food} />
                 ))}
             </div>
             <div className="text-center ">
-                <Link to="" className="btn btn-secondary my-2 px-10">
+                <Link to="/available" className="btn btn-secondary my-2 px-10">
                     Explore All
                 </Link>
             </div>

@@ -31,10 +31,8 @@ I am building a Community Food Sharing and Surplus Reduction Platform to connect
 -   **Navbar & Footer:** Present on all pages except the 404 page.
 -   **Environment Variables:** Use for Firebase and MongoDB credentials.
 -   **Responsiveness:** Mobile, tablet, and desktop views.
--   **Dynamic Title:** Change title based on route (e.g., "PHero | All Foods").
+-   **Dynamic Title:** Change title based on route (e.g., "Hunger | All Foods").
 -   **Protected Routes:** Keep logged-in users on private routes.
--   **Git Commits:** Minimum 18 for client-side, 8 for server-side.
--   **README:** Detailed project description and client-side live link.
 
 ## Features
 
