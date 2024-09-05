@@ -12,7 +12,11 @@ const BannerHeader = () => {
         <div>
             <Carousel className="text-center">
                 <div className="relative">
-                    <img src={banner1} className="max-h-[570px]" />
+                    <img
+                        src={banner1}
+                        className="max-h-[570px]"
+                        alt="banner image"
+                    />
                     <div className="absolute top-0 left-0 text-white bg-gradient-to-r from-[#00000009] to-[#0000002e] w-full h-full p-5 lg:p-20 grid  grid-cols-2 gap-6 items-center max-h-[570px]">
                         <div className="text-start space-y-1 md:space-y-5 ">
                             <h3 className="text-sm md:text-2xl lg:text-4xl text-teal-500 md:font-medium">
@@ -37,7 +41,11 @@ const BannerHeader = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <img src={banner2} className="max-h-[570px]" />
+                    <img
+                        src={banner2}
+                        className="max-h-[570px]"
+                        alt="banner image"
+                    />
                     <div className="absolute top-0 left-0 text-white bg-gradient-to-r from-[#0000006e] to-[#0000008f] w-full h-full p-5 lg:p-20 grid  grid-cols-2 gap-6 items-center max-h-[570px]">
                         <div className="text-start space-y-1 md:space-y-5 ">
                             <h3 className="text-sm md:text-2xl lg:text-4xl text-teal-500 md:font-medium">
@@ -62,7 +70,11 @@ const BannerHeader = () => {
                     </div>
                 </div>
                 <div className="relative">
-                    <img src={banner3} className="max-h-[570px]" />
+                    <img
+                        src={banner3}
+                        className="max-h-[570px]"
+                        alt="banner image"
+                    />
                     <div className="absolute top-0 left-0 text-white bg-gradient-to-r from-[#0000006e] to-[#0000008f] w-full h-full p-5 lg:p-20 grid  grid-cols-2 gap-6 items-center max-h-[570px]">
                         <div className="text-start space-y-1 md:space-y-5 ">
                             <h3 className="text-sm md:text-2xl lg:text-4xl text-teal-500 md:font-medium">
