@@ -1,19 +1,56 @@
 import {Link, NavLink} from 'react-router-dom';
 import useAuth from '../../../hooks/UserAuthContext/useAuth';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const {user, logOutUser} = useAuth();
 
     const handleLogout = () => {
-        logOutUser()
-            .then()
-            .catch((err) => console.log(err.message));
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger',
+            },
+            buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+            .fire({
+                title: 'Are you sure?',
+                text: 'You want to logout this!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Logout it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    logOutUser()
+                        .then(() => {
+                            swalWithBootstrapButtons.fire({
+                                title: 'success!',
+                                text: 'Your has been logged out.',
+                                icon: 'success',
+                            });
+                        })
+                        .catch((err) => console.log(err.message));
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        title: 'Cancelled',
+                        text: 'Your are still log in:)',
+                        icon: 'error',
+                    });
+                }
+            });
     };
 
     const navLinks = (
         <>
             <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">Ho me</NavLink>
             </li>
             <li>
                 <NavLink to="/available">Available Food</NavLink>

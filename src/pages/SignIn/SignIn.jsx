@@ -4,11 +4,10 @@ import './signIn.css';
 import {FaAt, FaEyeSlash, FaEye, FaGoogle, FaFacebook} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import useAuth from '../../hooks/UserAuthContext/useAuth';
+import Swal from 'sweetalert2';
 //import {Link, useLocation, useNavigate} from 'react-router-dom';
 //import {useContext, useState} from 'react';
 //import {AuthContext} from '../../context/UserContext';
-//import {ToastContainer, toast} from 'react-toastify';
-//import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
     const [show, setShow] = useState(false);
@@ -29,6 +28,13 @@ const SignIn = () => {
         logInUser(email, password)
             .then((res) => {
                 console.log(res.user);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'User has been logged in successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
                 e.target.reset();
             })
             .catch((err) => console.log(err.message));
@@ -38,6 +44,13 @@ const SignIn = () => {
         loginWithGoogle()
             .then((res) => {
                 console.log(res.user);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'User has been logged in successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch((err) => console.log(err.message));
     };
@@ -108,7 +121,6 @@ const SignIn = () => {
                             className="btn bg-cyan-500 w-full my-4 border-0 font-semibold text-black">
                             Login
                         </button>
-                        {/*    <ToastContainer /> */}
 
                         <p>Login with social link! </p>
                         <div className="flex space-x-8 justify-center items-center my-3">

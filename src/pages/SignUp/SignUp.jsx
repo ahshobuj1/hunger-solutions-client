@@ -11,11 +11,10 @@ import {
     FaRegUser,
 } from 'react-icons/fa';
 import './signUp.css';
+import Swal from 'sweetalert2';
 //import {Link, useLocation, useNavigate} from 'react-router-dom';
 //import {useContext, useState} from 'react';
 //import {AuthContext} from '../../context/UserContext';
-//import {ToastContainer, toast} from 'react-toastify';
-//import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const [show, setShow] = useState(false);
@@ -33,6 +32,13 @@ const SignUp = () => {
             .then((res) => {
                 console.log(res.user);
                 e.target.reset();
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Account has been created successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch((err) => console.log(err.message));
     };
@@ -42,6 +48,13 @@ const SignUp = () => {
         loginWithGoogle()
             .then((res) => {
                 console.log(res.user);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Account has been created successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch((err) => console.log(err.message));
     };
@@ -135,7 +148,6 @@ const SignUp = () => {
                             className="btn bg-cyan-500 w-full my-4 border-0 font-semibold text-black">
                             Register
                         </button>
-                        {/*    <ToastContainer /> */}
 
                         <p>Sign Up with social link! </p>
                         <div className="flex space-x-8 justify-center items-center my-3">
