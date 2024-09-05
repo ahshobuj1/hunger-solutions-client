@@ -1,11 +1,12 @@
 import {useEffect, useState} from 'react';
 import FoodCard from '../../../components/FoodCard.jsx/FoodCard';
+import {Link} from 'react-router-dom';
 
 const FeaturedFood = () => {
     const [foods, setFoods] = useState([]);
 
     useEffect(() => {
-        fetch('public/foodItems.json')
+        fetch('http://localhost:5000/foods')
             .then((res) => res.json())
             .then((data) => setFoods(data));
     }, []);
@@ -22,8 +23,13 @@ const FeaturedFood = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 ">
                 {foods.map((food) => (
-                    <FoodCard key={food.expiry_datetime} food={food} />
+                    <FoodCard key={food._id} food={food} />
                 ))}
+            </div>
+            <div className="text-center ">
+                <Link to="" className="btn btn-secondary my-2 px-10">
+                    Explore All
+                </Link>
             </div>
         </section>
     );
