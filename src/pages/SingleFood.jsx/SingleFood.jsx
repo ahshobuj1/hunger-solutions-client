@@ -14,7 +14,7 @@ const SingleFood = () => {
     } = foodDetails;
 
     return (
-        <div className="hero bg-slate-50 min-h-screen p-2 md:p-10">
+        <div className="hero bg-slate-50 min-h-screen p-2 md:p-10 bg-gradient-to-r from-[#ff000021] to-[#99000004] ">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img
                     src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
@@ -28,10 +28,6 @@ const SingleFood = () => {
                     <h3 className="text-lg">
                         <span className="font-bold ">Food Quantity</span> :{' '}
                         {food_quantity}
-                    </h3>
-                    <h3 className="text-lg">
-                        <span className="font-bold ">Pickup Location</span> :{' '}
-                        {pickup_location}
                     </h3>
                     <h3 className="text-lg">
                         <span className="font-bold ">Pickup Location</span> :{' '}
@@ -52,7 +48,7 @@ const SingleFood = () => {
                         for, and they will help provide available donations in
                         your community.
                     </p>
-                    <div className="flex gap-5 items-center bg-gray-100">
+                    <div className="flex gap-5 items-center bg-gray-100 rounded-lg">
                         <div className="avatar">
                             <div className="w-10 rounded-full ">
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />

@@ -14,7 +14,7 @@ const FeaturedFood = () => {
                 setFoods(res.data);
             })
             .catch((err) => console.log(err.message));
-        /* fetch('http://localhost:5000/foods')
+        /* fetch('https://hunger-solutions-server.vercel.app/foods')
             .then((res) => res.json())
             .then((data) => setFoods(data)); */
     }, [axiosSecure]);

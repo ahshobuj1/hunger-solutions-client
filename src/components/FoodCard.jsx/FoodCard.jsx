@@ -5,11 +5,12 @@ const FoodCard = ({food}) => {
     const {_id, food_name, donor, date_added} = food;
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl p-2">
+        <div className="card card-compact bg-gradient-to-r from-[#ff000000] to-[#9900002d] shadow-xl p-2">
             <figure>
                 <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                     alt="food"
+                    className="rounded-xl"
                 />
             </figure>
             <div className="card-body space-y-2">

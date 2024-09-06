@@ -6,6 +6,7 @@ import SignIn from '../pages/SignIn/SignIn';
 import SignUp from '../pages/SignUp/SignUp';
 import AvailableFood from '../pages/AvailableFood/AvailableFood';
 import SingleFood from '../pages/SingleFood.jsx/SingleFood';
+import ManageFood from '../pages/ManageMyFood/ManageFood';
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,13 @@ const router = createBrowserRouter([
                 path: '/foodDetails/:id',
                 element: <SingleFood />,
                 loader: ({params}) =>
-                    fetch(`http://localhost:5000/foods/${params.id}`),
+                    fetch(
+                        `https://hunger-solutions-server.vercel.app/foods/${params.id}`
+                    ),
+            },
+            {
+                path: '/myFood',
+                element: <ManageFood />,
             },
         ],
     },

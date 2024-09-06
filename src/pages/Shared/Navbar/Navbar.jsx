@@ -59,7 +59,7 @@ const Navbar = () => {
                 <NavLink to="/add">Add Food</NavLink>
             </li>
             <li>
-                <NavLink to="/manage">Manage My Food</NavLink>
+                <NavLink to="/myFood">Manage My Food</NavLink>
             </li>
             <li>
                 <NavLink to="/request">My Food Request</NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
 
     return (
         <section>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-gradient-to-r from-[#3add2b15] to-[#1096bb1f]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div
