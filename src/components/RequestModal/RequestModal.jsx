@@ -5,13 +5,15 @@ import useAxiosSecure from '../../hooks/AxiosSecure/useAxiosSecure';
 const RequestModal = ({foodDetails}) => {
     const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
-    const {food_name, donor, pickup_location, expiry_datetime} = foodDetails;
+    const {food_image, food_name, donor, pickup_location, expiry_datetime} =
+        foodDetails;
 
     const handleRequestFood = (e) => {
         e.preventDefault();
         const requestTime = e.target.requestTime.value;
 
         const requestFood = {
+            food_image,
             food_name,
             donorName: donor.donor_name,
             pickup_location,
