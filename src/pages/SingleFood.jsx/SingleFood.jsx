@@ -1,4 +1,5 @@
 import {useLoaderData} from 'react-router-dom';
+import RequestModal from '../../components/RequestModal/RequestModal';
 
 const SingleFood = () => {
     const foodDetails = useLoaderData();
@@ -48,10 +49,13 @@ const SingleFood = () => {
                         for, and they will help provide available donations in
                         your community.
                     </p>
-                    <div className="flex gap-5 items-center bg-gray-100 rounded-lg">
+                    <div className="flex gap-5 items-center bg-gray-100">
                         <div className="avatar">
                             <div className="w-10 rounded-full ">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img
+                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                    alt="donor images"
+                                />
                             </div>
                         </div>
                         <div>
@@ -61,9 +65,10 @@ const SingleFood = () => {
                             <p className="font-medium"> {date_added}</p>
                         </div>
                     </div>
-                    <button className="btn btn-neutral px-20">
-                        Request for Food
-                    </button>
+
+                    <div>
+                        <RequestModal foodDetails={foodDetails} />
+                    </div>
                 </div>
             </div>
         </div>

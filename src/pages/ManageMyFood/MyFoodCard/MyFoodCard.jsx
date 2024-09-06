@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'; // ES6
 import {Link} from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/AxiosSecure/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const MyFoodCard = ({food}) => {
     const axiosSecure = useAxiosSecure();
@@ -15,12 +16,29 @@ const MyFoodCard = ({food}) => {
     } = food;
 
     const handleDeleteFood = () => {
-        axiosSecure
-            .delete(`/myfoods/${_id}`)
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => console.log(err.message));
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure
+                    .delete(`/myfoods/${_id}`)
+                    .then((res) => {
+                        console.log(res.data);
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Your file has been deleted.',
+                            icon: 'success',
+                        });
+                    })
+                    .catch((err) => console.log(err.message));
+            }
+        });
     };
 
     return (
