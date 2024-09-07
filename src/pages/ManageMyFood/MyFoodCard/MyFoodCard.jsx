@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/AxiosSecure/useAxiosSecure';
 import Swal from 'sweetalert2';
 
-const MyFoodCard = ({food}) => {
+const MyFoodCard = ({food, foods, setFoods}) => {
     const axiosSecure = useAxiosSecure();
 
     const {
@@ -31,11 +31,17 @@ const MyFoodCard = ({food}) => {
                     .delete(`/myfoods/${_id}`)
                     .then((res) => {
                         console.log(res.data);
-                        Swal.fire({
-                            title: 'Deleted!',
-                            text: 'Your file has been deleted.',
-                            icon: 'success',
-                        });
+                        if (res.data.deletedCount < 0) {
+                            const filter = foods.filter(
+                                (foo) => foo._id !== _id
+                            );
+                            setFoods(filter);
+                            Swal.fire({
+                                title: 'Deleted!',
+                                text: 'Your file has been deleted.',
+                                icon: 'success',
+                            });
+                        }
                     })
                     .catch((err) => console.log(err.message));
             }
@@ -54,7 +60,11 @@ const MyFoodCard = ({food}) => {
                         className="btn btn-neutral btn-sm">
                         View
                     </Link>
-                    <button className="btn btn-secondary btn-sm">Edit</button>
+                    <Link
+                        to={`/update/${_id}`}
+                        className="btn btn-secondary btn-sm">
+                        Edit
+                    </Link>
                     <button
                         onClick={handleDeleteFood}
                         className="btn btn-error text-white btn-sm">
@@ -77,4 +87,6 @@ export default MyFoodCard;
 
 MyFoodCard.propTypes = {
     food: PropTypes.object,
+    foods: PropTypes.array,
+    setFoods: PropTypes.func,
 };

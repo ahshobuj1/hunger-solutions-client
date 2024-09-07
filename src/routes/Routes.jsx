@@ -9,6 +9,8 @@ import SingleFood from '../pages/SingleFood.jsx/SingleFood';
 import ManageFood from '../pages/ManageMyFood/ManageFood';
 import RequestFood from '../pages/RequestFood/RequestFood';
 import AddFood from '../pages/AddFood/AddFood';
+import PrivateRoute from './PrivateRoute';
+import UpdateMyFood from '../pages/UpdateMyFood/UpdateMyFood';
 
 const router = createBrowserRouter([
     {
@@ -34,7 +36,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/foodDetails/:id',
-                element: <SingleFood />,
+                element: (
+                    <PrivateRoute>
+                        <SingleFood />
+                    </PrivateRoute>
+                ),
                 loader: ({params}) =>
                     fetch(
                         `https://hunger-solutions-server.vercel.app/foods/${params.id}`
@@ -42,15 +48,39 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myFood',
-                element: <ManageFood />,
+                element: (
+                    <PrivateRoute>
+                        <ManageFood />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: '/request',
-                element: <RequestFood />,
+                element: (
+                    <PrivateRoute>
+                        <RequestFood />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: '/add',
-                element: <AddFood />,
+                element: (
+                    <PrivateRoute>
+                        <AddFood />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: '/update/:id',
+                element: (
+                    <PrivateRoute>
+                        <UpdateMyFood />
+                    </PrivateRoute>
+                ),
+                loader: ({params}) =>
+                    fetch(
+                        `https://hunger-solutions-server.vercel.app/foods/${params.id}`
+                    ),
             },
         ],
     },

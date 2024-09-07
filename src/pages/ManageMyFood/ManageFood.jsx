@@ -7,7 +7,6 @@ const ManageFood = () => {
     const [foods, setFoods] = useState([]);
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth();
-    console.log(user.email);
 
     useEffect(() => {
         axiosSecure
@@ -22,7 +21,12 @@ const ManageFood = () => {
         <section>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6  p-1">
                 {foods.map((food) => (
-                    <MyFoodCard key={food._id} food={food} />
+                    <MyFoodCard
+                        key={food._id}
+                        food={food}
+                        foods={foods}
+                        setFoods={setFoods}
+                    />
                 ))}
             </div>
         </section>

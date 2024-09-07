@@ -1,22 +1,23 @@
 import {useState} from 'react';
 import bgImage from '../../assets/images/bg-account.jpg';
 import './signIn.css';
-import {FaAt, FaEyeSlash, FaEye, FaGoogle, FaFacebook} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {FaAt, FaEyeSlash, FaEye, FaGoogle, FaGithub} from 'react-icons/fa';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import useAuth from '../../hooks/UserAuthContext/useAuth';
 import Swal from 'sweetalert2';
-//import {Link, useLocation, useNavigate} from 'react-router-dom';
-//import {useContext, useState} from 'react';
-//import {AuthContext} from '../../context/UserContext';
 
 const SignIn = () => {
     const [show, setShow] = useState(false);
     const {logInUser, loginWithGoogle} = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     /*  const {loginUser, loginWithGoogle} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location); */
+
+    console.log(location);
 
     //get input value
     const handleFormValue = (e) => {
@@ -36,6 +37,7 @@ const SignIn = () => {
                     timer: 1500,
                 });
                 e.target.reset();
+                navigate(location?.state ? location?.state : '/');
             })
             .catch((err) => console.log(err.message));
     };
@@ -51,6 +53,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
+                navigate(location?.state ? location?.state : '/');
             })
             .catch((err) => console.log(err.message));
     };
@@ -125,11 +128,11 @@ const SignIn = () => {
                         <p>Login with social link! </p>
                         <div className="flex space-x-8 justify-center items-center my-3">
                             <a onClick={handleGoogleLogin}>
-                                <FaGoogle className="text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
+                                <FaGoogle className=" btn btn-sm text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
                             </a>
-                            <a>
-                                <FaFacebook className="text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
-                            </a>
+                            <button>
+                                <FaGithub className=" btn btn-sm text-3xl p-1 rounded-sm bg-red-500 cursor-pointer" />
+                            </button>
                         </div>
 
                         <p>

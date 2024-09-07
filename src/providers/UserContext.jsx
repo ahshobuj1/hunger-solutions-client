@@ -56,6 +56,7 @@ const UserContext = ({children}) => {
                 setLoading(false);
             } else {
                 setUser('');
+                setLoading(false);
             }
         });
 

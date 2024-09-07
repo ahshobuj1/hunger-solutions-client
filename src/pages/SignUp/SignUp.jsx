@@ -1,13 +1,13 @@
 import {useState} from 'react';
 import bgImage from '../../assets/images/bg-account.jpg';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import useAuth from '../../hooks/UserAuthContext/useAuth';
 import {
     FaAt,
     FaEyeSlash,
     FaEye,
     FaGoogle,
-    FaFacebook,
+    FaGithub,
     FaRegUser,
 } from 'react-icons/fa';
 import './signUp.css';
@@ -19,6 +19,8 @@ import Swal from 'sweetalert2';
 const SignUp = () => {
     const [show, setShow] = useState(false);
     const {createUser, loginWithGoogle} = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     //get input value
     const handleFormValue = (e) => {
@@ -39,6 +41,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
+                navigate(location?.state ? location?.state : '/');
             })
             .catch((err) => console.log(err.message));
     };
@@ -55,6 +58,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 1500,
                 });
+                navigate(location?.state ? location?.state : '/');
             })
             .catch((err) => console.log(err.message));
     };
@@ -152,10 +156,10 @@ const SignUp = () => {
                         <p>Sign Up with social link! </p>
                         <div className="flex space-x-8 justify-center items-center my-3">
                             <a onClick={handleGoogleLogin}>
-                                <FaGoogle className="text-3xl p-1 rounded-sm bg-red-500" />
+                                <FaGoogle className=" btn btn-sm text-3xl p-1 rounded-sm bg-red-500" />
                             </a>
                             <a>
-                                <FaFacebook className="text-3xl p-1 rounded-sm bg-red-500" />
+                                <FaGithub className="btn btn-sm text-3xl p-1 rounded-sm bg-red-500" />
                             </a>
                         </div>
 
