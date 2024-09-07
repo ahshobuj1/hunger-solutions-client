@@ -1,25 +1,59 @@
 import success from '../../../assets/images/success.png';
+import {motion} from 'framer-motion';
 
 const Success = () => {
     return (
         <section className="mb-5">
-            <div className="text-center px-5 mt-20 mb-10">
+            <motion.div
+                initial={{y: -150, opacity: 0}}
+                whileInView={{y: 0, opacity: 1}}
+                viewport={{once: true}}
+                transition={{
+                    duration: 2,
+                    delay: 0.5,
+                    y: {type: 'spring', stiffness: 60},
+                    opacity: {duration: 1},
+                    ease: 'easeIn',
+                }}
+                className="text-center px-5 mt-20 mb-10">
                 <h2 className="text-3xl mb-6">Our Success Story</h2>
                 <p className="max-w-[650px] mx-auto">
                     Discover how your support has transformed lives and
                     strengthened our community through inspiring success stories
                     of those we have helped
                 </p>
-            </div>
+            </motion.div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-2">
-                <div className="flex justify-center">
+                <motion.div
+                    initial={{x: -100, opacity: 0}}
+                    whileInView={{x: 0, opacity: 1}}
+                    viewport={{once: true}}
+                    transition={{
+                        duration: 2,
+                        delay: 0.5,
+                        x: {type: 'spring', stiffness: 60},
+                        opacity: {duration: 1},
+                        ease: 'easeIn',
+                    }}
+                    className="flex justify-center">
                     <img
                         src={success}
                         alt="image of success"
                         className=" max-h-[500px]"
                     />
-                </div>
-                <div className="space-y-5">
+                </motion.div>
+                <motion.div
+                    initial={{x: 200, opacity: 0}}
+                    whileInView={{x: 0, opacity: 1}}
+                    viewport={{once: true}}
+                    transition={{
+                        duration: 2,
+                        delay: 0.5,
+                        x: {type: 'spring', stiffness: 60},
+                        opacity: {duration: 1},
+                        ease: 'easeIn',
+                    }}
+                    className="space-y-5">
                     <h2 className="text-3xl">Success</h2>
                     <p>
                         Thanks to the generous donations from our community, the
@@ -42,7 +76,7 @@ const Success = () => {
                         exemplifies the power of community involvement in making
                         a lasting impact.
                     </p>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
