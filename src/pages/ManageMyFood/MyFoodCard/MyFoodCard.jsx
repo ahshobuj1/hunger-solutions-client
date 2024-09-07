@@ -8,6 +8,7 @@ const MyFoodCard = ({food}) => {
 
     const {
         _id,
+        food_image,
         food_name,
         date_added,
         food_quantity,
@@ -42,13 +43,9 @@ const MyFoodCard = ({food}) => {
     };
 
     return (
-        <div className="grid md:grid-cols-2 p-1 md:p-5 gap-5 justify-center bg-gradient-to-r from-[#ff000000] to-[#99000044] rounded-md shadow-xl">
+        <div className="grid md:grid-cols-2 p-1 md:p-5 gap-5 justify-center items-center bg-gradient-to-r from-[#ff000000] to-[#99000044] rounded-md shadow-xl">
             <div>
-                <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                    alt="images"
-                    className="rounded-xl"
-                />
+                <img src={food_image} alt="images" className="rounded-xl" />
             </div>
             <div>
                 <div className="mb-6 space-x-5 ">

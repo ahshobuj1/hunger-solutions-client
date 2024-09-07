@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'; // ES6
+import {MdDelete} from 'react-icons/md';
 
 const Table = ({food}) => {
     const {
-        //food_image,
+        food_image,
         food_name,
         donorName,
         pickup_location,
@@ -15,7 +16,9 @@ const Table = ({food}) => {
             <tr>
                 <th>
                     <label>
-                        <input type="checkbox" className="checkbox" />
+                        <button className="btn btn-sm rounded-full btn-neutral text-xl">
+                            <MdDelete />
+                        </button>
                     </label>
                 </th>
                 <td>
@@ -23,7 +26,7 @@ const Table = ({food}) => {
                         <div className="avatar">
                             <div className="mask mask-squircle h-12 w-12">
                                 <img
-                                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                                    src={food_image}
                                     alt="Avatar Tailwind CSS Component"
                                 />
                             </div>

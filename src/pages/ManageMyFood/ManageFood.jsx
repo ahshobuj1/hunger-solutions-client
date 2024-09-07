@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import useAxiosSecure from '../../hooks/AxiosSecure/useAxiosSecure';
 import useAuth from '../../hooks/UserAuthContext/useAuth';
 import MyFoodCard from './MyFoodCard/MyFoodCard';
@@ -9,13 +9,14 @@ const ManageFood = () => {
     const {user} = useAuth();
     console.log(user.email);
 
-    axiosSecure
-        /*         .get(`/myfoods?email=${user?.email}`)
-         */ .get(`/myfoods?email=order@pizzapros.com`)
-        .then((res) => {
-            setFoods(res.data);
-        })
-        .catch((err) => console.log(err.message));
+    useEffect(() => {
+        axiosSecure
+            .get(`/myfoods?email=${user?.email}`)
+            .then((res) => {
+                setFoods(res.data);
+            })
+            .catch((err) => console.log(err.message));
+    }, [axiosSecure, user?.email]);
 
     return (
         <section>

@@ -31,14 +31,9 @@ const RequestFood = () => {
                         <thead>
                             <tr>
                                 <th>
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            className="checkbox"
-                                        />
-                                    </label>
+                                    <label>Remove</label>
                                 </th>
-                                <th></th>
+                                <th>Foods</th>
                                 <th>Expiration</th>
                                 <th> Donor</th>
                                 <th>Request date</th>

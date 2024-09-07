@@ -4,7 +4,7 @@ import RequestModal from '../../components/RequestModal/RequestModal';
 const SingleFood = () => {
     const foodDetails = useLoaderData();
     const {
-        //food_image,
+        food_image,
         food_name,
         donor,
         food_quantity,
@@ -18,12 +18,12 @@ const SingleFood = () => {
         <div className="hero bg-slate-50 min-h-screen p-2 md:p-10 bg-gradient-to-r from-[#ff000021] to-[#99000004] ">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                    src={food_image}
                     //src={food_image}
                     className="max-w-lg rounded-lg shadow-2xl"
                 />
                 <div className="space-y-4">
-                    <h1 className="text-4xl font-bold  text-violet-600">
+                    <h1 className="text-4xl font-bold  text-rose-700">
                         Food : {food_name}
                     </h1>
                     <h3 className="text-lg">

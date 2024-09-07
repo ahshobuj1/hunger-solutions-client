@@ -1,16 +1,21 @@
 import PropTypes from 'prop-types'; // ES6
 import useAuth from '../../hooks/UserAuthContext/useAuth';
 import useAxiosSecure from '../../hooks/AxiosSecure/useAxiosSecure';
+import Swal from 'sweetalert2';
+import {useNavigate} from 'react-router-dom';
+import moment from 'moment';
 
 const RequestModal = ({foodDetails}) => {
     const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
     const {food_image, food_name, donor, pickup_location, expiry_datetime} =
         foodDetails;
+    const navigate = useNavigate();
 
     const handleRequestFood = (e) => {
         e.preventDefault();
-        const requestTime = e.target.requestTime.value;
+        const wish = e.target.notes.value;
+        const requestTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 
         const requestFood = {
             food_image,
@@ -20,12 +25,24 @@ const RequestModal = ({foodDetails}) => {
             expiry_datetime,
             requestTime,
             email: user.email,
+            wish,
         };
 
         axiosSecure
             .post('/myrequest', requestFood)
             .then((res) => {
                 console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your request has been successful',
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+
+                    navigate('/request');
+                }
             })
             .catch((err) => console.log(err.message));
 
@@ -112,10 +129,10 @@ const RequestModal = ({foodDetails}) => {
                             <label className="input input-bordered flex items-center gap-2">
                                 Request Time :
                                 <input
-                                    type="date"
+                                    type="text"
                                     className="grow"
-                                    name="requestTime"
-                                    required
+                                    name="notes"
+                                    placeholder="Wish to say"
                                 />
                             </label>
 

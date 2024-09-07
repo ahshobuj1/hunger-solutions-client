@@ -3,6 +3,7 @@ import useAuth from '../../hooks/UserAuthContext/useAuth';
 import useAxiosSecure from '../../hooks/AxiosSecure/useAxiosSecure';
 import Swal from 'sweetalert2';
 import {useNavigate} from 'react-router-dom';
+import moment from 'moment';
 
 const AddFood = () => {
     const {user} = useAuth();
@@ -11,10 +12,11 @@ const AddFood = () => {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data);
+        const date_added = moment().format('MMMM Do YYYY, h:mm:ss a');
 
         const foodData = {
             ...data,
+            date_added,
             email: user?.email,
             donor: {donor_image: user?.photoURL, donor_name: user?.email},
         };
@@ -41,9 +43,24 @@ const AddFood = () => {
 
     return (
         <section className="p-10 md:h-screen">
-            <h2 className="text-center text-2xl md:text-3xl font-medium mb-10">
-                Add Foods for Treat Hungry People!
-            </h2>
+            <div className="space-y-6 mb-6">
+                <h2 className="text-center text-2xl md:text-3xl font-medium ">
+                    Add Foods To Treat Hungry People!
+                </h2>
+                <p>
+                    Welcome to the food donation page! Here, you can easily
+                    contribute to our mission of fighting hunger by donating
+                    food. Fill in the required details below to list your
+                    donation. Make sure to include information about the food
+                    items, their quantity, and expiration date. After
+                    submitting, your donation will be reviewed and made
+                    available to those in need.
+                </p>
+                <p className="font-medium">
+                    Thank you for making a difference!
+                </p>
+            </div>
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="md:grid md:grid-cols-2 space-y-5 md:space-y-0 gap-6">
                     <label className="input input-bordered flex items-center gap-2">
