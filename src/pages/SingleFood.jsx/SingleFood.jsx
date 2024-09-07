@@ -4,7 +4,7 @@ import RequestModal from '../../components/RequestModal/RequestModal';
 const SingleFood = () => {
     const foodDetails = useLoaderData();
     const {
-        food_image,
+        //food_image,
         food_name,
         donor,
         food_quantity,

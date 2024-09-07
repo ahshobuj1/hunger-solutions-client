@@ -7,6 +7,7 @@ const ManageFood = () => {
     const [foods, setFoods] = useState([]);
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth();
+    console.log(user.email);
 
     axiosSecure
         /*         .get(`/myfoods?email=${user?.email}`)

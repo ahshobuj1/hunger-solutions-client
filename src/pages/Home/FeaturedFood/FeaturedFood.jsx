@@ -30,7 +30,7 @@ const FeaturedFood = () => {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 ">
-                {foods.slice(0, 3).map((food) => (
+                {foods.slice(0, 6).map((food) => (
                     <FoodCard key={food._id} food={food} />
                 ))}
             </div>

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'; // ES6
 
 const Table = ({food}) => {
     const {
-        food_image,
+        //food_image,
         food_name,
         donorName,
         pickup_location,

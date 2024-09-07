@@ -8,6 +8,7 @@ import AvailableFood from '../pages/AvailableFood/AvailableFood';
 import SingleFood from '../pages/SingleFood.jsx/SingleFood';
 import ManageFood from '../pages/ManageMyFood/ManageFood';
 import RequestFood from '../pages/RequestFood/RequestFood';
+import AddFood from '../pages/AddFood/AddFood';
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: '/request',
                 element: <RequestFood />,
+            },
+            {
+                path: '/add',
+                element: <AddFood />,
             },
         ],
     },
