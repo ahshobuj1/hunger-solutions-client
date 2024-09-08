@@ -10,7 +10,7 @@ const RequestFood = () => {
 
     useEffect(() => {
         axiosSecure
-            .get(`/myrequest?email=${user?.email}`)
+            .get(`/myrequest?email=${user?.email}`, {withCredentials: true})
             .then((res) => {
                 console.log(res.data);
                 setFoods(res.data);

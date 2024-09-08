@@ -11,6 +11,7 @@ import {
     signOut,
 } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+import useAxiosSecure from '../hooks/AxiosSecure/useAxiosSecure';
 
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
@@ -19,6 +20,7 @@ const githubProvider = new GithubAuthProvider();
 const UserContext = ({children}) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+    const axiosSecure = useAxiosSecure();
 
     //create user with email and password
     const createUser = (email, password) => {
@@ -51,12 +53,28 @@ const UserContext = ({children}) => {
     useEffect(() => {
         setLoading(true);
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            const userLogged = currentUser?.email || user?.email;
+            const currentEmail = {email: userLogged};
+
             if (currentUser) {
                 setUser(currentUser);
                 setLoading(false);
+
+                axiosSecure
+                    .post('/jwt', currentEmail, {withCredentials: true})
+                    .then((res) => {
+                        console.log('json web token', res.data);
+                    })
+                    .catch((err) => console.log(err.message));
             } else {
                 setUser('');
                 setLoading(false);
+
+                axiosSecure
+                    .post('/logout', currentEmail, {
+                        withCredentials: true,
+                    })
+                    .then((res) => console.log(res.data));
             }
         });
 

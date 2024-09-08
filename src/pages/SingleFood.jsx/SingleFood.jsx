@@ -20,11 +20,11 @@ const SingleFood = () => {
                 <img
                     src={food_image}
                     //src={food_image}
-                    className="max-w-lg rounded-lg shadow-2xl"
+                    className="w-80 md:w-[500px]] rounded-lg shadow-2xl"
                 />
                 <div className="space-y-4">
-                    <h1 className="text-4xl font-bold  text-rose-700">
-                        Food : {food_name}
+                    <h1 className="text-4xl font-bold  text-orange-700">
+                        {food_name}
                     </h1>
                     <h3 className="text-lg">
                         <span className="font-bold ">Food Quantity</span> :{' '}

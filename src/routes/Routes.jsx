@@ -42,9 +42,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({params}) =>
-                    fetch(
-                        `https://hunger-solutions-server.vercel.app/foods/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/foods/${params.id}`),
             },
             {
                 path: '/myFood',
@@ -78,9 +76,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({params}) =>
-                    fetch(
-                        `https://hunger-solutions-server.vercel.app/foods/${params.id}`
-                    ),
+                    fetch(`http://localhost:5000/foods/${params.id}`),
             },
         ],
     },
