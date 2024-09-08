@@ -62,9 +62,7 @@ const UserContext = ({children}) => {
 
                 axiosSecure
                     .post('/jwt', currentEmail, {withCredentials: true})
-                    .then((res) => {
-                        console.log('json web token', res.data);
-                    })
+                    .then(() => {})
                     .catch((err) => console.log(err.message));
             } else {
                 setUser('');

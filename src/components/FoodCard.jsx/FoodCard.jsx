@@ -36,7 +36,7 @@ const FoodCard = ({food}) => {
                     />
                 </figure>
                 <div className="card-body space-y-2 border-x-2 rounded-md">
-                    <h2 className="card-title">Food Name : {food_name}</h2>
+                    <h2 className="card-title">{food_name}</h2>
                     <div className="flex gap-5 items-center bg-gray-100 border-2 rounded-lg">
                         <div className="avatar">
                             <div className="w-10 rounded-full ">
@@ -44,9 +44,7 @@ const FoodCard = ({food}) => {
                             </div>
                         </div>
                         <div>
-                            <p className="font-medium">
-                                Donor: {donor.donor_name}
-                            </p>
+                            <p className="font-medium">{donor.donor_name}</p>
                             <p className="font-medium"> {date_added}</p>
                         </div>
                     </div>
