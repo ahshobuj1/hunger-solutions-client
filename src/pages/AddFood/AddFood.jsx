@@ -18,7 +18,10 @@ const AddFood = () => {
             ...data,
             date_added,
             email: user?.email,
-            donor: {donor_image: user?.photoURL, donor_name: user?.email},
+            donor: {
+                donor_image: user?.photoURL ? user?.photoURL : '',
+                donor_name: user?.email,
+            },
         };
         console.log(foodData);
 

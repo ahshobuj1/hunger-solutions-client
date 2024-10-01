@@ -21,7 +21,7 @@ const FoodCard = ({food}) => {
             <motion.div
                 initial={{opacity: 0.6}}
                 whileHover={{
-                    scale: 1.2,
+                    scale: 1.1,
                     transition: {duration: 1},
                     zIndex: 10,
                 }}
@@ -37,14 +37,20 @@ const FoodCard = ({food}) => {
                 </figure>
                 <div className="card-body space-y-2 border-x-2 rounded-md">
                     <h2 className="card-title">{food_name}</h2>
-                    <div className="flex gap-5 items-center bg-gray-100 border-2 rounded-lg">
+                    <div className="flex gap-6 items-center bg-gray-100 border-2 rounded-lg">
                         <div className="avatar">
                             <div className="w-10 rounded-full ">
-                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                <img
+                                    src={
+                                        donor?.donor_image === ''
+                                            ? 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+                                            : donor.donor_image
+                                    }
+                                />
                             </div>
                         </div>
-                        <div>
-                            <p className="font-medium">{donor.donor_name}</p>
+                        <div className="pr-2">
+                            <p className="text-xm">{donor.donor_name}</p>
                             <p className="font-medium"> {date_added}</p>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ import banner3 from '../../../assets/images/banner-4.jpg';
 import Lottie from 'lottie-react';
 import foodsAnimation from '../../../assets/animation/foodsAnimation.json';
 import {motion} from 'framer-motion';
+import {Link} from 'react-router-dom';
 
 const BannerHeader = () => {
     return (
@@ -35,9 +36,11 @@ const BannerHeader = () => {
                                 Only by Helping Each Other We Can Make World
                                 Better
                             </h2>
-                            <button className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
+                            <Link
+                                to="/available"
+                                className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
                                 Explore Foods
-                            </button>
+                            </Link>
                         </motion.div>
                         <motion.div
                             initial={{y: -100, opacity: 0}}
@@ -82,9 +85,11 @@ const BannerHeader = () => {
                                 Only by Helping Each Other We Can Make World
                                 Better
                             </h2>
-                            <button className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
+                            <Link
+                                to="/available"
+                                className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
                                 Explore Foods
-                            </button>
+                            </Link>
                         </motion.div>
                         <motion.div
                             initial={{y: -100, opacity: 0}}
@@ -128,9 +133,11 @@ const BannerHeader = () => {
                                 Only by Helping Each Other We Can Make World
                                 Better
                             </h2>
-                            <button className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
+                            <Link
+                                to="/available"
+                                className="btn-sm btn bg-green-600 hover:bg-teal-500 border-none text-white md:px-10">
                                 Explore Foods
-                            </button>
+                            </Link>
                         </motion.div>
                         <motion.div
                             initial={{y: -100, opacity: 0}}
